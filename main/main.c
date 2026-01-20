@@ -66,7 +66,7 @@ void frame_test_task(void *pvParameters){
         frame_count++;
 
         //每100 frames 印log
-        if (frame_count == 1) || (frame_count % 100 == 0){
+        if ((frame_count == 1) || (frame_count % 100 == 0)){
             //frame本身資料
             ESP_LOGI(TAG, "Read frame %lu, ts=%llu, fade=%d", frame_count, frame_buf.timestamp, frame_buf.fade);
 
