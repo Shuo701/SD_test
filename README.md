@@ -12,7 +12,7 @@ frame_reader_init 補加上讀取前兩個byte version
 fr = f_read(&fp, &version_major, 1, &br);
     fr = f_read(&fp, &version_minor, 1, &br);
     
-    if (fr != FR_OK) {
+    if (fr != FR_OK){
         ESP_LOGE(TAG, "failed to read version");
         f_close(&fp);
         return ESP_FAIL;

@@ -61,7 +61,7 @@ esp_err_t frame_reader_init(const char *path, const frame_layout_t *layout)
     fr = f_read(&fp, &version_major, 1, &br);
     fr = f_read(&fp, &version_minor, 1, &br);
     
-    if (fr != FR_OK) {
+    if (fr != FR_OK){
         ESP_LOGE(TAG, "failed to read version");
         f_close(&fp);
         return ESP_FAIL;
