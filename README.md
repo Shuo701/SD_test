@@ -10,3 +10,22 @@
 frame_reader_init 補加上讀取前兩個byte
 
 ### 2. readframe.c
+多下面三個全域變數＆函式讓main抓
+'''
+uint8_t g_of_num = 0;
+uint8_t g_strip_num = 0;
+uint8_t *g_led_num = NULL;
+
+uint8_t frame_get_of_num(void);
+uint8_t frame_get_strip_num(void);
+uint8_t frame_get_led_num(uint8_t strip_index);
+uint32_t frame_get_frame_num(void);
+uint32_t frame_get_timestamp(uint32_t frame_index);
+'''
+然後多明確聲明函數
+'''
+static void sd_reader_task(void *arg);
+static uint32_t find_idx_by_ts(uint64_t ts);
+'''
+xTaskCreate的stack開更大
+4096 --> 16384
